@@ -1,0 +1,9 @@
+fastapi
+sqlalchemy
+pydantic
+uvicorn
+python-dotenv
+email-validator
+psycopg2-binary
+alembic
+Faker==19.13.0
