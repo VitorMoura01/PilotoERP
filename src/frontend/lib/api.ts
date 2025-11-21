@@ -1,5 +1,9 @@
 // API configuration
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+// Prefer a runtime-injected value (window.__ENV) so the container can set the API URL
+// without rebuilding the Next.js bundle. Falls back to build-time NEXT_PUBLIC_API_URL
+// and finally to localhost for local dev.
+const RUNTIME_API_URL = (typeof window !== 'undefined' && (window as any).__ENV && (window as any).__ENV.NEXT_PUBLIC_API_URL) || undefined;
+const API_BASE_URL = RUNTIME_API_URL || (typeof globalThis !== 'undefined' ? (globalThis as any).process?.env?.NEXT_PUBLIC_API_URL : undefined) || 'http://localhost:8000';
 
 // Generic API error type
 export interface ApiError {
