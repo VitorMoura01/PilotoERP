@@ -4,6 +4,7 @@ from app.routers import user, restaurant, sale, order, menu_item, order_item, in
 from app.database.session import engine
 from app.database.models import Base
 from fastapi.openapi.utils import get_openapi
+import os
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -11,9 +12,10 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 # Configure CORS
+allowed_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Frontend URL
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -48,3 +50,7 @@ app.include_router(kpi.router, prefix="/dashboard", tags=["KPIs"])
 @app.get("/")
 def read_root():
     return {"message": "Welcome to Pilot API"}
+
+@app.get("/ping")
+def ping():
+    return {"status": "ok"}

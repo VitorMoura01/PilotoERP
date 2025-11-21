@@ -1,4 +1,4 @@
-# Modulo 3
+# Modulo 4
 
 ## Summary
 
@@ -7,6 +7,7 @@ This README provides an overview of the project, its architecture, user stories,
 - [User Stories](../Modulo%203/Docs/User%20stories.md): Complete list of user stories, epics, and example tasks driving the project design.
 - [Solution Implementation](../Modulo%203/Docs/Solution_Implementation.md): Technical mapping of user stories to backend/frontend implementation and architectural philosophy.
 - [Piloto Bot: Conversational AI Assistant](../Modulo%203/Docs/Telegram%20bot.md): Vision, architecture, and roadmap for the Piloto Bot as the main data input channel.
+- [Landing Page](../Modulo%204/Docs/Landing_Page.md): Marketing message, design philosophy, and planned interactive demo video showcasing chat-based restaurant management.
 
 
 ## User stories progress
